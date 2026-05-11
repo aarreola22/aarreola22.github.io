@@ -123,6 +123,8 @@ img { max-width: 100%; display: block; }
   transition: background .15s;
 }
 .link-pill:hover { background: var(--c-tag-bg); text-decoration: none; }
+.link-pill-primary { background: var(--c-accent); color: #fff; border-color: var(--c-accent); }
+.link-pill-primary:hover { background: var(--c-accent-h); border-color: var(--c-accent-h); }
 
 /* ─── Resume ──────────────────────────────────────────────────── */
 .resume-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
