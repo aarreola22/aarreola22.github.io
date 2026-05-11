@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name — Engineering Portfolio</title>
+  <title>Andres Arreola — Mechanical Engineering Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -11,7 +11,7 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <span class="nav-logo">Your Name</span>
+      <span class="nav-logo">Andres Arreola</span>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -26,16 +26,17 @@
   <section id="about" class="section hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <p class="hero-eyebrow">Mechanical Engineering Student</p>
-        <h1 class="hero-name">Your Name</h1>
+        <p class="hero-eyebrow">Mechanical Engineering · Cal Poly SLO</p>
+        <h1 class="hero-name">Andres Arreola</h1>
         <p class="hero-sub">
-          B.S. Mechanical Engineering · Your University · Class of 20XX
+          B.S. Mechanical Engineering &middot; GPA 3.44 &middot; Dean's List &middot; Class of 2026
         </p>
         <p class="hero-bio">
-          I design hydropower systems and build engineering tools that turn field
-          measurements into actionable design parameters. My work spans
-          crossflow turbine geometry, hydropower permitting analysis, and
-          3D model generation for fabrication.
+          I design hydropower systems and build engineering tools that turn real site data
+          into actionable design parameters. As Design Lead for Cal Poly's DOE Hydropower
+          Collegiate Competition team, my work spans turbine sizing, thermodynamic modeling,
+          experimental testing, and Python-based data analysis — earning 1st place overall
+          nationally in 2026.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -54,26 +55,52 @@
   <section id="projects" class="section section-alt">
     <div class="container">
       <h2 class="section-title">Projects</h2>
-      <p class="section-sub">Engineering tools and design work from coursework and independent research.</p>
+      <p class="section-sub">Engineering design, analysis tools, and experimental work from competition, coursework, and independent research.</p>
       <div class="projects-grid">
+
+        <article class="card card-featured">
+          <div class="card-header">
+            <span class="card-tag">DOE Competition · Hydropower</span>
+            <span class="card-year">2025 – 2026</span>
+          </div>
+          <div class="card-award">&#127942; 1st Place Overall &nbsp;&middot;&nbsp; 1st Place Build &amp; Test &nbsp;&middot;&nbsp; 1st Place Community Connections</div>
+          <h3 class="card-title">Cross-Flow Turbine — DOE Hydropower Collegiate Competition</h3>
+          <p class="card-desc">
+            Led a team of 4 to design, build, and test a 1:5 scale cross-flow (Banki) turbine
+            model targeting ~133 kW full-scale shaft power at 73% efficiency. Used hydraulic
+            similitude laws and EES thermodynamic modeling throughout the design process.
+            Conducted site feasibility analysis from SCADA pressure and flow data
+            (4–31 cfs, 79–148 ft head) at a municipal pressure-reducing station.
+            Developed test procedures with a Prony brake dynamometer, turbine flow meter,
+            and pressure transducers; built Python data reduction tools to generate
+            power and efficiency curves and scale model-to-prototype projections.
+          </p>
+          <ul class="card-tags">
+            <li>Hydraulic Similitude</li>
+            <li>EES Modeling</li>
+            <li>Python / matplotlib</li>
+            <li>Dynamometer Testing</li>
+            <li>SCADA Data Analysis</li>
+            <li>SolidWorks</li>
+          </ul>
+        </article>
 
         <article class="card">
           <div class="card-header">
-            <span class="card-tag">Hydropower · Python</span>
-            <span class="card-year">20XX</span>
+            <span class="card-tag">Personal Project · Python</span>
+            <span class="card-year">2025</span>
           </div>
           <h3 class="card-title">Crossflow Turbine Calculator</h3>
           <p class="card-desc">
-            A Python tool that takes site hydraulic measurements (head and flow
-            rate) and outputs full turbine design parameters — runner diameter,
-            blade geometry, and rotational speed — based on Mockmore &amp; Merryfield
-            and Sammartano design equations. Exports 3D geometry compatible with
-            SolidWorks and Blender.
+            Python tool that takes site hydraulic measurements (head and flow rate) and
+            outputs full turbine design parameters — runner diameter, blade geometry,
+            and rotational speed — based on Mockmore &amp; Merryfield and Sammartano
+            design equations. Exports 3D geometry compatible with SolidWorks and Blender.
           </p>
           <ul class="card-tags">
             <li>Python</li>
             <li>Parametric Design</li>
-            <li>3D Export</li>
+            <li>3D Geometry Export</li>
             <li>Hydraulics</li>
           </ul>
           <div class="card-links">
@@ -85,20 +112,42 @@
 
         <article class="card">
           <div class="card-header">
-            <span class="card-tag">Permitting · Python</span>
-            <span class="card-year">20XX</span>
+            <span class="card-tag">Course Project · Thermal Systems</span>
+            <span class="card-year">2025</span>
+          </div>
+          <h3 class="card-title">Automotive Radiator Design</h3>
+          <p class="card-desc">
+            Modeled a 2012 Ford Mustang cooling system in EES, calculating Vehicle Specific
+            Power (73.3 kW) under extreme driving conditions (75 mph, 8.1% grade) by summing
+            aerodynamic drag, rolling resistance, and grade force. Applied the LMTD method
+            to size a radiator heat exchanger for a 50/50 ethylene glycol-water coolant.
+            Identified air-side convective resistance as the dominant thermal resistance and
+            recommended increased fin density as the primary design improvement.
+          </p>
+          <ul class="card-tags">
+            <li>EES</li>
+            <li>LMTD Method</li>
+            <li>Heat Exchanger Design</li>
+            <li>Thermodynamics</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <span class="card-tag">Personal Project · Python</span>
+            <span class="card-year">2025</span>
           </div>
           <h3 class="card-title">Hydropower Permit Tool</h3>
           <p class="card-desc">
-            An automated analysis tool that maps site characteristics against
-            federal and state permitting requirements for small hydropower
-            projects. Identifies applicable regulatory pathways, flags potential
-            obstacles, and generates a site feasibility summary report.
+            Automated analysis tool that maps site characteristics against federal and state
+            permitting requirements for small hydropower projects. Identifies applicable
+            regulatory pathways (FERC exemptions, state 401 certifications), flags potential
+            obstacles, and generates a site feasibility summary report from site inputs.
           </p>
           <ul class="card-tags">
             <li>Python</li>
+            <li>FERC Permitting</li>
             <li>Regulatory Analysis</li>
-            <li>FERC</li>
             <li>Small Hydro</li>
           </ul>
           <div class="card-links">
@@ -118,20 +167,60 @@
       <div>
         <h2 class="section-title">Resume</h2>
         <p class="section-sub">
-          My full resume includes coursework, lab experience, technical skills,
-          and project details.
+          Full resume including coursework, competition awards, and technical experience.
         </p>
         <a href="assets/resume.pdf" class="btn btn-primary" download>
           Download Resume (PDF)
         </a>
+        <div class="awards-block">
+          <h3 class="skills-title">Awards &amp; Recognition</h3>
+          <ul class="awards-list">
+            <li>
+              <span class="award-name">1st Place Overall — DOE Hydropower Collegiate Competition</span>
+              <span class="award-year">2026</span>
+              <span class="award-desc">Top national finish across design report, build &amp; test performance, and community connections</span>
+            </li>
+            <li>
+              <span class="award-name">Cal Poly Scholars</span>
+              <span class="award-year">2024 – Present</span>
+              <span class="award-desc">Merit program recognizing high-achieving undergraduates from low-income backgrounds</span>
+            </li>
+            <li>
+              <span class="award-name">Seal of Biliteracy — English &amp; Spanish</span>
+              <span class="award-year">2018</span>
+              <span class="award-desc">State-recognized achievement in English and Spanish linguistic proficiency</span>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="skills-block">
-        <h3 class="skills-title">Skills &amp; Tools</h3>
+        <h3 class="skills-title">Technical Skills</h3>
         <ul class="skills-list">
-          <li><span class="skill-label">Engineering</span> Fluid mechanics, hydraulic machinery, thermodynamics</li>
-          <li><span class="skill-label">Software</span> Python, MATLAB, SolidWorks, Blender</li>
-          <li><span class="skill-label">Methods</span> Parametric design, FEA, experimental testing</li>
-          <li><span class="skill-label">Other</span> Git, Linux, technical writing</li>
+          <li>
+            <span class="skill-label">CAD &amp; Simulation</span>
+            SolidWorks, SolidWorks FEA, SolidWorks Flow Simulation, AutoCAD
+          </li>
+          <li>
+            <span class="skill-label">Programming</span>
+            Python (matplotlib, scipy), MATLAB, Simulink, EES, C++, Excel
+          </li>
+          <li>
+            <span class="skill-label">Instrumentation</span>
+            Pressure transducers, flow meters, thermocouples, dynamometers, DAQ systems
+          </li>
+          <li>
+            <span class="skill-label">Coursework</span>
+            Fluid Mechanics I &amp; II, Thermodynamics I &amp; II, Heat Transfer,
+            Thermal System Design, Energy Conversion, System Dynamics
+          </li>
+          <li>
+            <span class="skill-label">Involvement</span>
+            Water Power Club, ASHRAE Cal Poly, Society of Hispanic Professional Engineers
+          </li>
+          <li>
+            <span class="skill-label">Languages</span>
+            English (native), Spanish (fluent)
+          </li>
         </ul>
       </div>
     </div>
@@ -142,22 +231,25 @@
     <div class="container contact-inner">
       <h2 class="section-title">Contact</h2>
       <p class="section-sub">
-        Open to internships, research collaborations, and engineering opportunities.
+        Open to internships, research collaborations, and engineering opportunities
+        in renewable energy and hydropower.
       </p>
-      <a href="mailto:your.email@university.edu" class="btn btn-primary contact-btn">
-        Send an Email
+      <a href="mailto:a.arreola22@yahoo.com" class="btn btn-primary contact-btn">
+        a.arreola22@yahoo.com
       </a>
       <div class="social-links">
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://linkedin.com/in/anarreol" target="_blank" rel="noopener">LinkedIn</a>
         <span class="dot">&middot;</span>
         <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+        <span class="dot">&middot;</span>
+        <span>(916) 952-8463</span>
       </div>
     </div>
   </section>
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Your Name &mdash; Built with HTML, CSS &amp; JavaScript</p>
+      <p>&copy; 2026 Andres Arreola &mdash; Mechanical Engineering, Cal Poly SLO</p>
     </div>
   </footer>
 
