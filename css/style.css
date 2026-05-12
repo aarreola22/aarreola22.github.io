@@ -75,11 +75,12 @@ img { max-width: 100%; display: block; }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 .avatar-placeholder {
-  width: 160px; height: 160px; border-radius: 50%;
+  width: 220px; height: 280px; border-radius: 10px;
   background: var(--c-bg-alt); border: 2px solid var(--c-border);
   display: flex; align-items: center; justify-content: center;
   color: var(--c-muted); font-size: .85rem;
 }
+.avatar-img { width: 220px; height: 280px; border-radius: 10px; object-fit: cover; }
 
 /* ─── Projects ────────────────────────────────────────────────── */
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 1.5rem; }
