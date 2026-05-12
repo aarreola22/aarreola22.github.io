@@ -131,6 +131,20 @@ img { max-width: 100%; display: block; }
 .link-pill-primary { background: var(--c-accent); color: #fff; border-color: var(--c-accent); }
 .link-pill-primary:hover { background: var(--c-accent-h); border-color: var(--c-accent-h); }
 
+/* ─── Story card (landscaping) ────────────────────────────────── */
+.card-story { grid-column: 1 / -1; }
+.story-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+.story-text  { display: flex; flex-direction: column; gap: .75rem; }
+.story-photos { display: flex; flex-direction: column; gap: .6rem; }
+.story-photos-row { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+.story-photo { width: 100%; border-radius: 8px; object-fit: cover; }
+.story-photo-wide { height: 220px; object-position: center; }
+.story-photos-row .story-photo { height: 160px; object-position: center top; }
+
+@media (max-width: 700px) {
+  .story-inner { grid-template-columns: 1fr; }
+}
+
 /* ─── Resume ──────────────────────────────────────────────────── */
 .resume-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
 
