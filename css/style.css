@@ -111,6 +111,10 @@ img { max-width: 100%; display: block; }
   border-color: var(--c-accent);
   background: linear-gradient(135deg, #eff6ff 0%, #ffffff 60%);
 }
+.card-photo {
+  width: 100%; max-height: 280px; object-fit: cover; object-position: center top;
+  border-radius: 6px; margin: .25rem 0;
+}
 .card-award {
   font-size: .8rem; font-weight: 700; color: var(--c-accent);
   background: var(--c-tag-bg); border: 1px solid #bfdbfe;
