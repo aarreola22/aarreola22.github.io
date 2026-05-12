@@ -112,7 +112,7 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(135deg, #eff6ff 0%, #ffffff 60%);
 }
 .card-photo {
-  width: 100%; max-height: 280px; object-fit: cover; object-position: center;
+  width: 100%; max-height: 450px; object-fit: cover; object-position: center;
   border-radius: 6px; margin: .25rem 0;
 }
 .card-award {
