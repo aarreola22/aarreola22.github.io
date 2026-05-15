@@ -71,7 +71,8 @@ img { max-width: 100%; display: block; }
 .hero-eyebrow { font-size: .875rem; font-weight: 600; color: var(--c-accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .5rem; }
 .hero-name    { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.1; margin-bottom: .5rem; }
 .hero-sub     { color: var(--c-muted); margin-bottom: 1.25rem; }
-.hero-bio     { max-width: 520px; color: var(--c-text); margin-bottom: 2rem; }
+.hero-bio     { max-width: 520px; color: var(--c-text); margin-bottom: .75rem; }
+.hero-bio-win { max-width: 520px; font-weight: 700; color: var(--c-accent); margin-bottom: .75rem; }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 .avatar-placeholder {
@@ -182,7 +183,8 @@ img { max-width: 100%; display: block; }
   .projects-grid { grid-template-columns: 1fr; }
   .resume-inner { grid-template-columns: 1fr; gap: 2rem; }
 
-  .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--c-border); padding: 1rem 1.5rem; gap: 1rem; }
+  .nav-inner { position: relative; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: -1.5rem; right: -1.5rem; background: #fff; border-bottom: 1px solid var(--c-border); padding: 1rem 1.5rem; gap: 1rem; z-index: 10; }
   .nav-links.open { display: flex; }
   .nav-toggle { display: block; }
 }

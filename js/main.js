@@ -3,12 +3,18 @@ const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
 toggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+  const isOpen = navLinks.classList.toggle('open');
+  toggle.textContent = isOpen ? '×' : '☰';
+  toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Toggle menu');
 });
 
 // Close mobile nav when a link is clicked
 navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    toggle.textContent = '☰';
+    toggle.setAttribute('aria-label', 'Toggle menu');
+  });
 });
 
 // Highlight active nav link on scroll
