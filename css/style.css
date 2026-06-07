@@ -17,6 +17,8 @@
   --nav-h:         60px;
   --font-display:  'Barlow Condensed', system-ui, sans-serif;
   --font:          'Segoe UI', system-ui, -apple-system, sans-serif;
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,6 +35,30 @@
     --c-tag-text:    oklch(0.80 0.12 65);
     --shadow:        0 1px 4px rgba(0,0,0,.25), 0 6px 24px rgba(0,0,0,.2);
   }
+}
+
+/* ─── Keyframes ───────────────────────────────────────────────── */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Hero entrance — one signature choreography on page load */
+.hero-name    { animation: rise 650ms var(--ease-out-expo) both; }
+.hero-sub     { animation: rise 600ms var(--ease-out-expo) 80ms both; }
+.hero-win     { animation: rise 550ms var(--ease-out-expo) 160ms both; }
+.hero-bio     { animation: rise 500ms var(--ease-out-expo) 230ms both; }
+.hero-actions { animation: rise 500ms var(--ease-out-expo) 310ms both; }
+.avatar-img   { animation: rise 700ms var(--ease-out-expo) 100ms both; }
+
+/* Card entrance — JS adds .is-visible via IntersectionObserver */
+.js .card { opacity: 0; transform: translateY(14px); }
+.js .card.is-visible {
+  animation: card-in 500ms var(--ease-out-expo) calc(var(--stagger, 0) * 60ms) both;
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -63,7 +89,9 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--c-border);
   height: var(--nav-h);
+  transition: box-shadow .3s var(--ease-out-quart);
 }
+.nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.09); }
 .nav-inner {
   max-width: 960px; margin: 0 auto; padding: 0 1.5rem;
   display: flex; align-items: center; justify-content: space-between;
@@ -79,11 +107,15 @@ img { max-width: 100%; display: block; }
 /* ─── Buttons ─────────────────────────────────────────────────── */
 .btn {
   display: inline-block; padding: .65rem 1.4rem; border-radius: var(--radius);
-  font-size: .95rem; font-weight: 600; cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+  font-size: .95rem; font-weight: 600; cursor: pointer;
+  transition: background .15s var(--ease-out-quart), color .15s, border-color .15s,
+              transform .15s var(--ease-out-quart), box-shadow .15s var(--ease-out-quart);
   text-decoration: none;
 }
+.btn:hover  { transform: translateY(-1px); }
+.btn:active { transform: scale(0.98); transition-duration: .08s; }
 .btn-primary  { background: var(--c-accent); color: oklch(0.13 0.008 255); }
-.btn-primary:hover { background: var(--c-accent-h); text-decoration: none; }
+.btn-primary:hover { background: var(--c-accent-h); text-decoration: none; box-shadow: 0 4px 12px color-mix(in srgb, var(--c-accent) 35%, transparent); }
 .btn-outline  { background: transparent; color: var(--c-accent-text); border: 1.5px solid var(--c-accent); }
 .btn-outline:hover { background: var(--c-tag-bg); text-decoration: none; }
 
@@ -127,9 +159,9 @@ img { max-width: 100%; display: block; }
   background: var(--c-bg); border: 1px solid var(--c-border);
   border-radius: var(--radius); padding: 1.75rem;
   box-shadow: var(--shadow); display: flex; flex-direction: column; gap: .75rem;
-  transition: box-shadow .2s, transform .2s;
+  transition: box-shadow .25s var(--ease-out-quart), transform .25s var(--ease-out-quart);
 }
-.card:hover { box-shadow: 0 4px 24px rgba(0,0,0,.1); transform: translateY(-2px); }
+.card:hover { box-shadow: 0 4px 24px rgba(0,0,0,.1); transform: translateY(-3px); }
 
 .card-header { display: flex; justify-content: space-between; align-items: center; }
 .card-tag  { font-size: .75rem; font-weight: 600; background: var(--c-tag-bg); color: var(--c-tag-text); padding: .2rem .6rem; border-radius: 999px; }
@@ -167,9 +199,10 @@ img { max-width: 100%; display: block; }
   display: inline-block; font-size: .875rem; font-weight: 600;
   color: var(--c-accent-text); padding: .4rem .9rem;
   border: 1.5px solid var(--c-accent); border-radius: 999px;
-  transition: background .15s;
+  transition: background .15s var(--ease-out-quart), transform .15s var(--ease-out-quart), border-color .15s;
 }
-.link-pill:hover { background: var(--c-tag-bg); text-decoration: none; }
+.link-pill:hover { background: var(--c-tag-bg); text-decoration: none; transform: translateY(-1px); }
+.link-pill:active { transform: scale(0.97); transition-duration: .08s; }
 .link-pill-primary { background: var(--c-accent); color: oklch(0.13 0.008 255); border-color: var(--c-accent); }
 .link-pill-primary:hover { background: var(--c-accent-h); border-color: var(--c-accent-h); }
 
@@ -185,6 +218,15 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 700px) {
   .story-inner { grid-template-columns: 1fr; }
+}
+
+/* ─── Reduced motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* ─── Resume ──────────────────────────────────────────────────── */
@@ -229,7 +271,16 @@ img { max-width: 100%; display: block; }
   .resume-inner { grid-template-columns: 1fr; gap: 2rem; }
 
   .nav-inner { position: relative; }
-  .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: -1.5rem; right: -1.5rem; background: var(--c-bg); border-bottom: 1px solid var(--c-border); padding: 1rem 1.5rem; gap: 1rem; z-index: 10; }
-  .nav-links.open { display: flex; }
+  .nav-links {
+    display: flex; flex-direction: column; position: absolute; top: 100%; left: -1.5rem; right: -1.5rem;
+    background: var(--c-bg); border-bottom: 1px solid var(--c-border); padding: 1rem 1.5rem; gap: 1rem; z-index: 10;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity .2s var(--ease-out-quart), transform .2s var(--ease-out-quart), visibility 0s .2s;
+  }
+  .nav-links.open {
+    opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0);
+    transition: opacity .2s var(--ease-out-quart), transform .2s var(--ease-out-quart), visibility 0s 0s;
+  }
   .nav-toggle { display: block; }
 }
