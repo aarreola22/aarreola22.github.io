@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 2,
+  "project": {
+    "name": "Andres Arreola Portfolio",
+    "description": "Mechanical engineering portfolio. Hydropower specialist, 2026 DOE Hydropower Collegiate Competition national champion.",
+    "register": "brand",
+    "northStar": "The Field Engineer's Notebook — authority through specificity, documentation that earns trust through exactness."
+  },
+  "tokens": {
+    "colors": {
+      "bg":          { "value": "oklch(1 0 0)",          "role": "Page background, pure white" },
+      "bg-surface":  { "value": "oklch(0.975 0.006 75)", "role": "Alternate section background, barely-warm tint" },
+      "text-ink":    { "value": "oklch(0.13 0.008 255)", "role": "Primary text, near-black with cool lean. INVARIANT — never swapped in dark mode on amber backgrounds." },
+      "text-muted":  { "value": "oklch(0.47 0.015 260)", "role": "Secondary text, metadata, card descriptions" },
+      "border":      { "value": "oklch(0.88 0.005 255)", "role": "1px borders, subtle cool neutral" },
+      "accent":      { "value": "oklch(0.65 0.13 65)",   "role": "Measurement Amber. Fills: buttons, featured border, award badge. Never body text." },
+      "accent-deep": { "value": "oklch(0.57 0.14 65)",   "role": "Hover state for amber-filled elements" },
+      "accent-text": { "value": "oklch(0.40 0.12 65)",   "role": "Amber-for-text. ~6.5:1 on white. All amber text uses this level." },
+      "tag-bg":      { "value": "oklch(0.96 0.02 65)",   "role": "Light amber chip/badge surface. Pairs exclusively with accent-text." }
+    },
+    "colorMeta": {
+      "colorSpace": "OKLCH",
+      "rule": "Two-level amber: accent (L=0.65) for fills/borders; accent-text (L=0.40) for foreground text. Never cross levels.",
+      "contrastAA": {
+        "accent-text on bg": "~6.5:1 PASS",
+        "text-muted on bg":  "~4.6:1 PASS",
+        "text-ink on accent": "~9.2:1 PASS (use text-ink, not text-muted or any var that changes in dark mode)"
+      },
+      "tonalRamps": {
+        "amber": [
+          "oklch(0.18 0.08 65)",
+          "oklch(0.27 0.10 65)",
+          "oklch(0.40 0.12 65)",
+          "oklch(0.50 0.13 65)",
+          "oklch(0.57 0.14 65)",
+          "oklch(0.65 0.13 65)",
+          "oklch(0.80 0.09 65)",
+          "oklch(0.96 0.02 65)"
+        ],
+        "neutral-cool": [
+          "oklch(0.13 0.008 255)",
+          "oklch(0.22 0.010 258)",
+          "oklch(0.35 0.012 260)",
+          "oklch(0.47 0.015 260)",
+          "oklch(0.60 0.012 260)",
+          "oklch(0.72 0.008 258)",
+          "oklch(0.88 0.005 255)",
+          "oklch(0.975 0.006 75)"
+        ]
+      }
+    },
+    "typography": {
+      "display": {
+        "fontFamily": "'Barlow Condensed', system-ui, sans-serif",
+        "fontSize":   "clamp(3.5rem, 9vw, 5.5rem)",
+        "fontWeight": 700,
+        "lineHeight": 1,
+        "letterSpacing": "-0.02em",
+        "usage": "Hero name only. One element per page."
+      },
+      "headline": {
+        "fontFamily": "'Barlow Condensed', system-ui, sans-serif",
+        "fontSize":   "clamp(1.75rem, 3.5vw, 2.5rem)",
+        "fontWeight": 700,
+        "lineHeight": 1.2,
+        "letterSpacing": "-0.01em",
+        "usage": "Section titles (h2). Fluid-scaled."
+      },
+      "title": {
+        "fontFamily": "'Barlow Condensed', system-ui, sans-serif",
+        "fontSize":   "1.2rem",
+        "fontWeight": 700,
+        "lineHeight": 1.25,
+        "letterSpacing": "-0.01em",
+        "usage": "Card titles (h3). Fixed."
+      },
+      "body": {
+        "fontFamily": "'Segoe UI', system-ui, -apple-system, sans-serif",
+        "fontSize":   "1rem",
+        "fontWeight": 400,
+        "lineHeight": 1.6,
+        "usage": "Prose, hero bio, card descriptions"
+      },
+      "label": {
+        "fontFamily": "'Segoe UI', system-ui, -apple-system, sans-serif",
+        "fontSize":   "0.875rem",
+        "fontWeight": 600,
+        "usage": "Tags, metadata, nav links, button text. Floor: never below 0.875rem on any viewport."
+      }
+    },
+    "typographyMeta": {
+      "displayFont": "Barlow Condensed",
+      "displayLoadSource": "Google Fonts",
+      "displayWeights": [600, 700],
+      "displayLoadStrategy": "display=swap",
+      "bodyFont": "system stack (zero network cost)",
+      "rule": "Barlow Condensed for h1/h2/h3 and nav logo only. All other text uses the system stack.",
+      "scaleContrast": "Display min (3.5rem) / Title (1.2rem) >= 2.9x. Each hierarchy step unmistakable at a glance."
+    },
+    "spacing": {
+      "section": "5rem",
+      "card":    "1.75rem",
+      "gap":     "1.5rem"
+    },
+    "rounded": {
+      "base":  "6px",
+      "pill":  "999px",
+      "photo": "10px"
+    },
+    "shadows": {
+      "card-rest": {
+        "value": "0 1px 4px rgba(0,0,0,.05), 0 6px 24px rgba(0,0,0,.07)",
+        "usage": "Always present on cards. Two-layer: near sharp + far soft."
+      },
+      "card-hover": {
+        "value": "0 4px 24px rgba(0,0,0,.10)",
+        "usage": "Card hover state. Pairs with translateY(-3px). Both must change simultaneously."
+      },
+      "nav-scrolled": {
+        "value": "0 2px 20px rgba(0,0,0,.09)",
+        "usage": "Nav when hero has scrolled out of viewport. Applied via .scrolled class by IntersectionObserver."
+      },
+      "btn-primary-hover": {
+        "value": "0 4px 12px color-mix(in srgb, var(--c-accent) 35%, transparent)",
+        "usage": "Amber glow under primary CTA on hover. Disappears at rest."
+      }
+    },
+    "motion": {
+      "easeOutQuart": "cubic-bezier(0.25, 1, 0.5, 1)",
+      "easeOutExpo":  "cubic-bezier(0.16, 1, 0.3, 1)",
+      "keyframes": {
+        "rise":    "from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; }",
+        "card-in": "from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; }"
+      },
+      "heroChoreography": {
+        "strategy": "Pure CSS @keyframes, fires on page load. No JS gating. animation-fill-mode: both keeps elements at 'from' state during delay.",
+        "sequence": {
+          "hero-name":    { "duration": "650ms", "delay": "0ms" },
+          "hero-sub":     { "duration": "600ms", "delay": "80ms" },
+          "hero-win":     { "duration": "550ms", "delay": "160ms" },
+          "hero-bio":     { "duration": "500ms", "delay": "230ms" },
+          "hero-actions": { "duration": "500ms", "delay": "310ms" },
+          "avatar-img":   { "duration": "700ms", "delay": "100ms" }
+        }
+      },
+      "cardEntrance": {
+        "strategy": "IntersectionObserver with progressive enhancement. .js class gates the opacity:0 initial state. Inline script in <head> adds .js synchronously before body renders.",
+        "threshold": 0.08,
+        "stagger": "var(--stagger, 0) * 60ms via CSS custom property on each card element"
+      },
+      "mobileNav": {
+        "strategy": "opacity + visibility + pointer-events. transition: visibility 0s [delay] pattern for smooth close.",
+        "openDuration": "200ms",
+        "closeDuration": "200ms"
+      },
+      "rule": "rise fires once on page load for the hero. No scroll-triggered fade-rise on every section. Card entrance is the only scroll-reveal in the system."
+    },
+    "breakpoints": {
+      "mobile":  "700px",
+      "tablet":  "900px",
+      "desktop": "1100px"
+    }
+  },
+  "components": [
+    {
+      "name": "button-primary",
+      "description": "Primary CTA. Amber fill, near-black text. The single most important action on any section.",
+      "html": "<a href=\"#\" class=\"ds-btn ds-btn-primary\">View Projects</a>",
+      "css": ".ds-btn { display: inline-block; padding: 0.65rem 1.4rem; border-radius: 6px; font-size: 0.875rem; font-weight: 600; text-decoration: none; border: 1.5px solid transparent; cursor: pointer; transition: background 0.15s cubic-bezier(0.25, 1, 0.5, 1), color 0.15s, border-color 0.15s, transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.15s cubic-bezier(0.25, 1, 0.5, 1); }\n.ds-btn:hover { transform: translateY(-1px); }\n.ds-btn:active { transform: scale(0.98); transition-duration: 0.08s; }\n.ds-btn-primary { background: oklch(0.65 0.13 65); color: oklch(0.13 0.008 255); border-color: oklch(0.65 0.13 65); }\n.ds-btn-primary:hover { background: oklch(0.57 0.14 65); border-color: oklch(0.57 0.14 65); box-shadow: 0 4px 12px color-mix(in srgb, oklch(0.65 0.13 65) 35%, transparent); }"
+    },
+    {
+      "name": "button-outline",
+      "description": "Secondary CTA. Transparent fill, amber border and text. Paired with button-primary in hero actions.",
+      "html": "<a href=\"#\" class=\"ds-btn ds-btn-outline\">Get in Touch</a>",
+      "css": ".ds-btn-outline { background: transparent; color: oklch(0.40 0.12 65); border-color: oklch(0.65 0.13 65); }\n.ds-btn-outline:hover { background: oklch(0.96 0.02 65); }"
+    },
+    {
+      "name": "link-pill-primary",
+      "description": "Filled amber pill for the primary project action per card (Live Demo, DOE Article).",
+      "html": "<a href=\"#\" class=\"ds-pill ds-pill-primary\" target=\"_blank\" rel=\"noopener\">Live Demo &rarr;</a>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; padding: 0.4rem 0.9rem; border-radius: 999px; font-size: 0.875rem; font-weight: 600; text-decoration: none; border: 1.5px solid transparent; transition: background 0.15s cubic-bezier(0.25, 1, 0.5, 1), transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.15s; }\n.ds-pill:hover { transform: translateY(-1px); }\n.ds-pill:active { transform: scale(0.97); transition-duration: 0.08s; }\n.ds-pill-primary { background: oklch(0.65 0.13 65); color: oklch(0.13 0.008 255); border-color: oklch(0.65 0.13 65); }\n.ds-pill-primary:hover { background: oklch(0.57 0.14 65); border-color: oklch(0.57 0.14 65); }"
+    },
+    {
+      "name": "link-pill-outline",
+      "description": "Outline pill for secondary project links (GitHub, article references). Groups with link-pill-primary in .card-links flex container.",
+      "html": "<a href=\"#\" class=\"ds-pill ds-pill-outline\" target=\"_blank\" rel=\"noopener\">GitHub &rarr;</a>",
+      "css": ".ds-pill-outline { background: transparent; color: oklch(0.40 0.12 65); border-color: oklch(0.65 0.13 65); }\n.ds-pill-outline:hover { background: oklch(0.96 0.02 65); }"
+    },
+    {
+      "name": "card-default",
+      "description": "Project card. Two-layer ambient shadow at rest, rises on hover. Stagger delay via --stagger CSS custom property.",
+      "html": "<article class=\"ds-card\" style=\"--stagger:0\">\n  <div class=\"ds-card-header\">\n    <span class=\"ds-card-tag\">Category &middot; Type</span>\n    <span class=\"ds-card-year\">2025</span>\n  </div>\n  <h3 class=\"ds-card-title\">Project Title</h3>\n  <p class=\"ds-card-desc\">Card description paragraph.</p>\n  <div class=\"ds-card-links\">\n    <a href=\"#\" class=\"ds-pill ds-pill-primary\">Live Demo &rarr;</a>\n    <a href=\"#\" class=\"ds-pill ds-pill-outline\">GitHub &rarr;</a>\n  </div>\n</article>",
+      "css": ".ds-card { background: oklch(1 0 0); border: 1px solid oklch(0.88 0.005 255); border-radius: 6px; padding: 1.75rem; box-shadow: 0 1px 4px rgba(0,0,0,.05), 0 6px 24px rgba(0,0,0,.07); transition: box-shadow 0.25s cubic-bezier(0.25, 1, 0.5, 1), transform 0.25s cubic-bezier(0.25, 1, 0.5, 1); }\n.ds-card:hover { transform: translateY(-3px); box-shadow: 0 4px 24px rgba(0,0,0,.10); }\n.ds-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }\n.ds-card-tag { font-size: 0.75rem; font-weight: 600; color: oklch(0.40 0.12 65); background: oklch(0.96 0.02 65); padding: 0.2rem 0.6rem; border-radius: 999px; }\n.ds-card-year { font-size: 0.82rem; color: oklch(0.47 0.015 260); }\n.ds-card-title { font-family: 'Barlow Condensed', system-ui, sans-serif; font-size: 1.2rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; margin: 0 0 0.75rem; color: oklch(0.13 0.008 255); }\n.ds-card-desc { font-size: 1rem; line-height: 1.6; color: oklch(0.47 0.015 260); margin: 0 0 1.25rem; }\n.ds-card-links { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }"
+    },
+    {
+      "name": "card-featured",
+      "description": "Hero project card. Full grid width, amber border, warm diagonal gradient. One per page.",
+      "html": "<article class=\"ds-card ds-card-featured\" style=\"--stagger:0\">\n  <div class=\"ds-card-award\">&#127942; 1st Place Overall</div>\n  <h3 class=\"ds-card-title\">Featured Project</h3>\n</article>",
+      "css": ".ds-card-featured { grid-column: 1 / -1; border-color: oklch(0.65 0.13 65); background: linear-gradient(135deg, oklch(0.96 0.02 65) 0%, oklch(1 0 0) 60%); }\n.ds-card-award { font-size: 0.82rem; font-weight: 600; color: oklch(0.40 0.12 65); border: 1px solid color-mix(in srgb, oklch(0.65 0.13 65) 30%, transparent); background: color-mix(in srgb, oklch(0.65 0.13 65) 8%, transparent); border-radius: 6px; padding: 0.4rem 0.75rem; display: inline-block; margin-bottom: 0.75rem; }"
+    },
+    {
+      "name": "tag-chip",
+      "description": "Technology stack chip. Low visual weight. Used in card-tags lists to list tools without asserting hierarchy.",
+      "html": "<ul class=\"ds-tag-list\"><li>Python</li><li>SolidWorks</li><li>MATLAB</li></ul>",
+      "css": ".ds-tag-list { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }\n.ds-tag-list li { font-size: 0.8rem; color: oklch(0.47 0.015 260); border: 1px solid oklch(0.88 0.005 255); border-radius: 999px; padding: 0.2rem 0.6rem; }"
+    },
+    {
+      "name": "hero-win",
+      "description": "Competition result callout in the hero. Appears once. Amber-tinted surface with muted context line.",
+      "html": "<div class=\"ds-hero-win\">\n  <span class=\"ds-hero-win-places\">1st Place Overall &middot; 1st Place Build &amp; Test</span>\n  <span class=\"ds-hero-win-context\">2026 DOE Hydropower Collegiate Competition &middot; National</span>\n</div>",
+      "css": ".ds-hero-win { background: oklch(0.96 0.02 65); border: 1px solid color-mix(in srgb, oklch(0.65 0.13 65) 20%, transparent); border-radius: 6px; padding: 0.75rem 1rem; display: inline-flex; flex-direction: column; gap: 0.2rem; }\n.ds-hero-win-places { font-size: 0.9rem; font-weight: 700; color: oklch(0.40 0.12 65); }\n.ds-hero-win-context { font-size: 0.8rem; color: oklch(0.47 0.015 260); }"
+    },
+    {
+      "name": "nav",
+      "description": "Sticky navigation bar. Translucent at top, gains shadow when hero scrolls past (via .scrolled class from IntersectionObserver).",
+      "html": "<nav class=\"ds-nav\">\n  <div class=\"ds-nav-inner\">\n    <a href=\"#about\" class=\"ds-nav-logo\">Andres Arreola</a>\n    <ul class=\"ds-nav-links\">\n      <li><a href=\"#about\">About</a></li>\n      <li><a href=\"#projects\">Projects</a></li>\n    </ul>\n    <button class=\"ds-nav-toggle\" aria-label=\"Toggle menu\" aria-expanded=\"false\">&#9776;</button>\n  </div>\n</nav>",
+      "css": ".ds-nav { position: sticky; top: 0; z-index: 100; height: 60px; background: oklch(1 0 0 / 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid oklch(0.88 0.005 255); transition: box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1); }\n.ds-nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.09); }\n.ds-nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; height: 100%; display: flex; align-items: center; gap: 2rem; }\n.ds-nav-logo { font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 700; font-size: 1.1rem; color: oklch(0.13 0.008 255); text-decoration: none; }\n.ds-nav-logo:hover { color: oklch(0.13 0.008 255); text-decoration: none; }\n.ds-nav-links { display: flex; list-style: none; gap: 1.5rem; margin: 0 0 0 auto; padding: 0; }\n.ds-nav-links a { font-size: 0.95rem; font-weight: 500; color: oklch(0.47 0.015 260); text-decoration: none; transition: color 0.15s; }\n.ds-nav-links a:hover, .ds-nav-links a.active { color: oklch(0.13 0.008 255); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Field Engineer's Notebook — authority through specificity, documentation that earns trust through exactness.",
+    "accentCharacter": "Measurement Amber: signal indicators, pressure gauges, test bench warning lights. A deliberate mark on what matters.",
+    "elevationPhilosophy": "Flat by default. Shadows respond to state, not applied as decoration. One ambient exception: the card resting shadow, which always distinguishes cards from their background.",
+    "componentFeel": "Designed like instruments, not decorations. Precise and legible. The card is a spec sheet; the button is a control.",
+    "antiPatterns": [
+      "Warm-neutral body background (cream/sand/parchment). Background is pure white; warmth is carried by the amber accent.",
+      "Gradient text. Weight and scale carry emphasis; a single solid color always.",
+      "Side-stripe borders as decoration.",
+      "Tiny uppercase tracked eyebrows above every section.",
+      "scroll-triggered fade-rise on every section. The rise keyframe fires once: hero on page load.",
+      "A second accent color. The amber is singular; rarity is what makes it signal.",
+      "Using var(--c-text) for text on amber fills. Always use the hard-coded near-black invariant."
+    ]
+  }
+}
